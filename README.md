@@ -1,3 +1,3 @@
-# digital-clock
+# digital-RGB-clock
 
- ### Let's see the [`Live preview🔎`](https://devasik.netlify.app)
+ ### Let's see the [`Live preview🔎`](https://rgb-clock-devasik.netlify.app)
