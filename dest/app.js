@@ -3,10 +3,10 @@ window.addEventListener('load', () => {
     app();
 });
 const app = () => {
-    let h1 = document.querySelector('h1');
+    let clock__display = document.querySelector('.clock__display');
     let day = document.querySelector('.day');
     let month = document.querySelector('.month');
-    let date = document.querySelector('.date');
+    let year = document.querySelector('.year');
     const color = () => {
         let a = Math.floor(Math.random() * 255);
         let b = Math.floor(Math.random() * 255);
@@ -38,9 +38,9 @@ const app = () => {
         const clock = `
     <span style="color: ${color().color_a}">${hour}</span> : 
     <span style="color: ${color().color_a}">${minute}</span> : 
-    <span style="color: ${color().color_a}">${second}</span> ${isAM}`;
-        if (h1)
-            h1.innerHTML = clock;
+    <span style="color: ${color().color_a}">${second}</span> <span style="color:${!isAM ? '#ff0b65' : '#0bff38'}">${isAM}</span>`;
+        if (clock__display)
+            clock__display.innerHTML = clock;
     };
     setInterval(() => {
         clock();
@@ -50,8 +50,9 @@ const app = () => {
     let dayCount = new Date().getUTCDay();
     var dayName = '';
     let monthCount = parseInt(new Date().getUTCMonth().toString());
+    let clockDate = new Date().getDate();
     var monthName = '';
-    let dateCount = new Date().toLocaleDateString();
+    let yearCount = new Date().getFullYear();
     if (dayCount == 5) {
         dayName = 'Friday';
     }
@@ -116,10 +117,9 @@ const app = () => {
         monthName = 'Empty!!';
     }
     if (month)
-        month.textContent = monthName;
+        month.textContent = `${clockDate + ' ' + monthName}`;
     if (day)
         day.textContent = dayName;
-    if (date)
-        date.textContent = dateCount;
-    console.log(dateCount);
+    if (year)
+        year.textContent = yearCount;
 };

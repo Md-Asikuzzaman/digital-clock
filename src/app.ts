@@ -3,10 +3,11 @@ window.addEventListener('load', () => {
 });
 
 const app = () => {
-  let h1: HTMLHeadingElement | null = document.querySelector('h1');
-  let day: HTMLHeadingElement | null = document.querySelector('.day');
-  let month: HTMLHeadingElement | null = document.querySelector('.month');
-  let date: HTMLHeadingElement | null = document.querySelector('.date');
+  let clock__display: HTMLHeadingElement =
+    document.querySelector('.clock__display')!;
+  let day: HTMLHeadingElement = document.querySelector('.day')!;
+  let month: HTMLHeadingElement = document.querySelector('.month')!;
+  let year: HTMLHeadingElement = document.querySelector('.year')!;
 
   const color = () => {
     let a: number = Math.floor(Math.random() * 255);
@@ -29,7 +30,7 @@ const app = () => {
 
     // Check is the time is AM/PM
     let isAM = hour > 12 ? 'PM' : 'AM';
-    
+
     // Check the actual time is
     if (hour == 0) {
       hour = 1;
@@ -45,9 +46,13 @@ const app = () => {
     const clock: string = `
     <span style="color: ${color().color_a}">${hour}</span> : 
     <span style="color: ${color().color_a}">${minute}</span> : 
-    <span style="color: ${color().color_a}">${second}</span> ${isAM}`;
+    <span style="color: ${
+      color().color_a
+    }">${second}</span> <span style="color:${
+      !isAM ? '#ff0b65' : '#0bff38'
+    }">${isAM}</span>`;
 
-    if (h1) h1.innerHTML = clock;
+    if (clock__display) clock__display.innerHTML = clock;
   };
 
   setInterval(() => {
@@ -62,9 +67,12 @@ const app = () => {
   let monthCount: number | string = parseInt(
     new Date().getUTCMonth().toString()
   );
+
+  let clockDate = new Date().getDate();
+
   var monthName: string = '';
 
-  let dateCount: number | string = new Date().toLocaleDateString();
+  let yearCount: any = new Date().getFullYear();
 
   if (dayCount == 5) {
     dayName = 'Friday';
@@ -111,8 +119,7 @@ const app = () => {
   } else {
     monthName = 'Empty!!';
   }
-  if (month) month.textContent = monthName;
+  if (month) month.textContent = `${clockDate + ' ' + monthName}`;
   if (day) day.textContent = dayName;
-  if (date) date.textContent = dateCount;
-  console.log(dateCount);
+  if (year) year.textContent = yearCount;
 };

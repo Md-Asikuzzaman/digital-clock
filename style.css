@@ -11,40 +11,39 @@ body {
   background-color: #222;
   font-family: arial;
   margin: 0 1rem;
-  background: linear-gradient(90deg, #333, #111);
+  background: linear-gradient(90deg, #0f172a, #0f172a);
 }
 
-h3 {
+.clock__title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   color: #f0f0ff;
   margin-bottom: 2.5rem;
 }
 
-h1 {
-  font-size: 4.5rem;
-  color: rgb(255, 11, 101);
+.clock__display {
+  font-size: 5rem;
+  color: #0b69ff;
   padding: 1rem 2.5rem;
-  border-radius: 0.3rem;
-  background-color: #444;
+  border-radius: 0.5rem;
+  background-color: #1e293b;
   text-align: center;
   transition: 600ms;
   backdrop-filter: blur(40px);
 }
 
-.info {
+.clock__info {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 20px;
-  color: #f0f0ff;
+  color: #f5f5f5;
   margin-top: 1.2rem;
-  text-align: center;
   font-size: 1.2rem;
 }
 
 .day:hover,
 .month:hover,
-.date:hover {
+.year:hover {
   color: #f0f0ff;
   text-shadow: 0 0 10px #f0f0ff, 0 0 20px #f0f0ff, 0 0 40px #f0f0ff,
     0 0 80px #f0f0ff, 0 0 120px #f0f0ff, 0 0 16px #f0f0ff;
@@ -52,29 +51,67 @@ h1 {
 
 .day,
 .month,
-.date {
-  background-color: #444;
+.year {
+  background-color: #1e293b;
   padding: 1rem 2.5rem;
   border-radius: 0.3rem;
   cursor: pointer;
   transition: 500ms;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
-  h1 {
-    font-size: 3.5rem;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  h1 {
+  .clock__title {
     font-size: 2.5rem;
   }
+  .clock__display {
+    font-size: 4rem;
+  }
 }
 
-@media screen and (max-width: 400px) {
-  h1 {
-    font-size: 1.5rem;
-    padding: 0.4rem 1.5rem;
+@media screen and (max-width: 557px) {
+  .clock__title {
+    font-size: 2.2rem;
+  }
+  .clock__display {
+    font-size: 3rem;
+  }
+
+  .clock__info {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 2rem 0;
+    margin-top: 0.3rem;
+    grid-gap: 15px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .clock__title {
+    font-size: 1.8rem;
+  }
+  .clock__display {
+    font-size: 2rem;
+  }
+
+  .clock__info {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 1rem 0;
+    margin-top: 0.3rem;
+    grid-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .clock__title {
+    font-size: 1.2rem;
+  }
+  .clock__display {
+    font-size: 1.2rem;
+  }
+
+  .clock__info {
+    font-size: 1rem;
   }
 }

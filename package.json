@@ -1,8 +1,8 @@
 {
-  "name": "typescript",
+  "name": "digital-clock",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "tsc --watch"
   },
